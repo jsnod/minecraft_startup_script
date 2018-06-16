@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+# minecraft-server       Start up and shut down minecraft-server
+#
+# chkconfig: 345 99 1
+# description: Starts minecraft-server
+
+# Source function library.
+. /etc/init.d/functions
+
+WORKDIR="/usr/local/minecraft-server"
+RETVAL=0
+
+getpid() {
+    pid=`ps -eo pid,comm | grep java | awk '{ print $1 }'`
+}
+
+start() {
+    echo -n $"Starting minecraft: "
+    getpid
+    if [ -z "$pid" ]; then
+        cd $WORKDIR
+        nohup /usr/bin/java -Xms1G -Xmx1G -jar /usr/local/minecraft-server/server.jar nogui > /usr/local/minecraft-server/service.log 2>&1 &
+        RETVAL=$?
+    fi
+    if [ $RETVAL -eq 0 ]; then
+        touch /var/lock/subsys/minecraft-server
+        echo_success
+    else
+        echo_failure
+    fi
+    echo
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping minecraft: "
+    getpid
+    RETVAL=$?
+    if [ -n "$pid" ]; then
+        kill -9 $pid
+    sleep 1
+    getpid
+    if [ -z "$pid" ]; then
+        rm -f /var/lock/subsys/minecraft-server
+        echo_success
+    else
+        echo_failure
+    fi
+    else
+        echo_failure
+    fi
+    echo
+    return $RETVAL
+}
+
+case "$1" in
+   start)
+      start
+      ;;
+   stop)
+      stop
+      ;;
+   restart)
+      stop
+      start
+      ;;
+   status)
+      getpid
+      if [ -n "$pid" ]; then
+          echo "minecraft-server (pid ${pid}) is running..."
+      else
+          RETVAL=1
+          echo "minecraft-server is stopped"
+      fi
+      ;;
+   *)
+      echo $"Usage: $0 {start|stop|status|restart}"
+      exit 1
+      ;;
+esac
+
+exit 0
