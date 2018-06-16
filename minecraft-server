@@ -20,7 +20,7 @@ start() {
     getpid
     if [ -z "$pid" ]; then
         cd $WORKDIR
-        nohup /usr/bin/java -Xms1G -Xmx1G -jar /usr/local/minecraft-server/server.jar nogui > /usr/local/minecraft-server/service.log 2>&1 &
+        nohup /usr/bin/java -Xms1G -Xmx1G -jar $WORKDIR/server.jar nogui > $WORKDIR/service.log 2>&1 &
         RETVAL=$?
     fi
     if [ $RETVAL -eq 0 ]; then
