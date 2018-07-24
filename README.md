@@ -3,12 +3,22 @@ A basic startup script for minecraft-server
 
 ## Assumptions
 
-* You already have minecraft-server installed in `/usr/local/minecraft-server`
+* You already have minecraft-server installed in `WORKDIR` (default: `/usr/local/minecraft-server`)
 
 ## Installation
 
 1. Simply drop the [`minecraft-server`](minecraft-server) file into `/etc/init.d`
-2. Adjust the `-Xms` and `-Xmx` in the `start()` function to match your system's capabilities
+2. Adjust the following variables at the top of the file to match your system's capabilities:
+    1. `WORKDIR` - path where minecraft-server is installed
+    2. `MIN_MEMORY_ALLOCATION` - Initial memory allocation pool for JVM
+    3. `MAX_MEMORY_ALLOCATION` - Maximum memory allocation pool for JVM
+
+## Usage
+
+* Start Minecraft Server: `service minecraft-server start`
+* Stop Minecraft Server: `service minecraft-server stop`
+* Restart Minecraft Server: `service minecraft-server restart`
+* Get Minecraft Server Status: `service minecraft-server status`
 
 ## Notes
 
