@@ -8,7 +8,12 @@
 # Source function library.
 . /etc/init.d/functions
 
+# Adjust below to match your system
 WORKDIR="/usr/local/minecraft-server"
+MIN_MEMORY_ALLOCATION="1G"
+MAX_MEMORY_ALLOCATION="1G"
+
+# Don't modify below
 RETVAL=0
 
 getpid() {
@@ -20,7 +25,7 @@ start() {
     getpid
     if [ -z "$pid" ]; then
         cd $WORKDIR
-        nohup /usr/bin/java -Xms1G -Xmx1G -jar $WORKDIR/server.jar nogui > $WORKDIR/service.log 2>&1 &
+        nohup /usr/bin/java -Xms$MIN_MEMORY_ALLOCATION -Xmx$MAX_MEMORY_ALLOCATION -jar $WORKDIR/server.jar nogui > $WORKDIR/service.log 2>&1 &
         RETVAL=$?
     fi
     if [ $RETVAL -eq 0 ]; then
