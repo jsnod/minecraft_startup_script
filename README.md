@@ -3,12 +3,15 @@ A basic startup script for minecraft-server
 
 ## Prerequisites
 
+* This script has been tested on Amazon Linux AMI but should work on any Red Hat Enterprise Linux (RHEL) distro, eg: CentOS
 * You should have minecraft-server installed in `WORKDIR` (default: `/usr/local/minecraft-server`)
 
-### Installing Minecraft Server
+#### Installing Minecraft Server
 [TODO]
 
-### Upgrading Minecraft Server
+See [https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server#Linux_instructions](https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server#Linux_instructions)
+
+#### Upgrading Minecraft Server
 Assuming you already have Minecraft Server installed, you can easily upgrade to a new version like so:
 
 ```bash
@@ -37,7 +40,3 @@ service minecraft-server restart
 
 * The service will start in the background and ignore the HUP signal.
 * stderr/stdout will be routed to `$WORKDIR/service.log`
-
-## Help
-
-See [https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server](https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server)
