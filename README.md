@@ -6,7 +6,7 @@ A basic startup script for minecraft-server
 * This script has been tested on Amazon Linux AMI but should work on any Red Hat Enterprise Linux (RHEL) compatible distro, eg: CentOS
 * You should have minecraft-server installed in `WORKDIR` (default: `/usr/local/minecraft-server`)
 
-## Startup Script Installation
+## Installation
 
 1. Simply drop the [`minecraft-server`](minecraft-server) file into `/etc/init.d`
 2. Adjust the following variables at the top of the file to match your system's capabilities:
