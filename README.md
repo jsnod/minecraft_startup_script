@@ -1,11 +1,24 @@
 # Minecraft Server Startup Script
 A basic startup script for minecraft-server
 
-## Assumptions
+## Prerequisites
 
-* You already have minecraft-server installed in `WORKDIR` (default: `/usr/local/minecraft-server`)
+* You should have minecraft-server installed in `WORKDIR` (default: `/usr/local/minecraft-server`)
 
-## Installation
+### Installing Minecraft Server
+[TODO]
+
+### Upgrading Minecraft Server
+Assuming you already have Minecraft Server installed, you can easily upgrade to a new version like so:
+
+```bash
+wget https://launcher.mojang.com/mc/game/X.YY.Z/server/abcdefg12345/server.jar -O /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar
+chown minecraft-server.daemon /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar
+ln -sf /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar server.jar
+service minecraft-server restart
+```
+
+## Startup Script Installation
 
 1. Simply drop the [`minecraft-server`](minecraft-server) file into `/etc/init.d`
 2. Adjust the following variables at the top of the file to match your system's capabilities:
