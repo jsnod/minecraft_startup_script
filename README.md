@@ -43,6 +43,11 @@ ln -sf /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar server.jar
 service minecraft-server restart
 ```
 
+#### Checking Server Logs
+```bash
+sudo tail --lines=500 -f /usr/local/minecraft-server/logs/latest.log
+```
+
 #### Making Your Server Private
 1. Find the user's UUID from [https://mcuuid.net/](https://mcuuid.net/)
 2. Edit `/usr/local/minecraft-server/server.properties` and set enforcement of whitelist:
@@ -50,7 +55,7 @@ service minecraft-server restart
     enforce-whitelist=true
     ```
 3. Edit `/usr/local/minecraft-server/whitelist.json` and add them:
-    ```json
+    ```javascript
     [
       {
         "uuid": "d56f5713-fb33-4b2c-ab22-725cb362542d",
