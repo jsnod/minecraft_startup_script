@@ -42,3 +42,24 @@ chown minecraft-server.daemon /usr/local/minecraft-server/minecraft_server.X.YY.
 ln -sf /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar server.jar
 service minecraft-server restart
 ```
+
+#### Making Your Server Private
+1. Find the user's UUID from [https://mcuuid.net/](https://mcuuid.net/)
+2. Edit `/usr/local/minecraft-server/server.properties` and set enforcement of whitelist:
+    ```
+    enforce-whitelist=true
+    ```
+3. Edit `/usr/local/minecraft-server/whitelist.json` and add them:
+    ```json
+    [
+      {
+        "uuid": "d56f5713-fb33-4b2c-ab22-725cb362542d",
+        "name": "SomeUser"
+      },
+      {
+        "uuid": "034b1c1c-4a1c-463b-b70e-1c0c53737efd",
+        "name": "AnotherUser"
+      },
+    ]
+    ```
+4. Restart the server: `service minecraft-server restart`
