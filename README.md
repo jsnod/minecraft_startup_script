@@ -49,12 +49,15 @@ sudo tail --lines=500 -f /usr/local/minecraft-server/logs/latest.log
 ```
 
 #### Making Your Server Private
-1. Find the user's UUID from [https://mcuuid.net/](https://mcuuid.net/)
-2. Edit `/usr/local/minecraft-server/server.properties` and set enforcement of whitelist:
+1. Edit `/usr/local/minecraft-server/server.properties` and set enforcement of whitelist:
     ```
     enforce-whitelist=true
     ```
-3. Edit `/usr/local/minecraft-server/whitelist.json` and add them:
+2. Restart the server: `service minecraft-server restart`
+    
+#### Adding Users To Your Private Server
+1. Find the user's UUID from [https://mcuuid.net/](https://mcuuid.net/)
+2. Edit `/usr/local/minecraft-server/whitelist.json` and add them:
     ```javascript
     [
       {
@@ -67,4 +70,4 @@ sudo tail --lines=500 -f /usr/local/minecraft-server/logs/latest.log
       },
     ]
     ```
-4. Restart the server: `service minecraft-server restart`
+3. Restart the server: `service minecraft-server restart`
