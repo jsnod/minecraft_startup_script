@@ -13,6 +13,7 @@ A basic startup script for minecraft-server
     1. `WORKDIR` - path where minecraft-server is installed
     2. `MIN_MEMORY_ALLOCATION` - Initial memory allocation pool for JVM
     3. `MAX_MEMORY_ALLOCATION` - Maximum memory allocation pool for JVM
+    4. `JAVA_FLAGS` - By default this script uses Java flags recommended by [Aikar](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/).  Adjust as needed for your system.
 
 ## Usage
 
@@ -54,7 +55,7 @@ sudo tail --lines=500 -f /usr/local/minecraft-server/logs/latest.log
     enforce-whitelist=true
     ```
 2. Restart the server: `service minecraft-server restart`
-    
+
 #### Adding Users To Your Private Server
 1. Find the user's UUID from [https://mcuuid.net/](https://mcuuid.net/)
 2. Edit `/usr/local/minecraft-server/whitelist.json` and add them:
