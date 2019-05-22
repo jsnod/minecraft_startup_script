@@ -10,8 +10,8 @@
 
 # Adjust below to match your system
 WORKDIR="/usr/local/minecraft-server"
-MIN_MEMORY_ALLOCATION="1G"
-MAX_MEMORY_ALLOCATION="1G"
+MIN_MEMORY_ALLOCATION="2G"
+MAX_MEMORY_ALLOCATION="2G"
 
 # Additional Java flags recommended by Aikar: https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/
 # Modify as needed.
