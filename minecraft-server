@@ -29,7 +29,7 @@ start() {
     getpid
     if [ -z "$pid" ]; then
         cd $WORKDIR
-        nohup /usr/bin/java -Xms$MIN_MEMORY_ALLOCATION -Xmx$MAX_MEMORY_ALLOCATION $JAVA_FLAGS -jar $WORKDIR/server.jar nogui > $WORKDIR/service.log 2>&1 &
+        nohup /usr/bin/java -Xms$MIN_MEMORY_ALLOCATION -Xmx$MAX_MEMORY_ALLOCATION $JAVA_FLAGS -server -jar $WORKDIR/server.jar nogui > $WORKDIR/service.log 2>&1 &
         RETVAL=$?
     fi
     if [ $RETVAL -eq 0 ]; then
