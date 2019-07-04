@@ -40,7 +40,7 @@ Assuming you already have Minecraft Server installed, you can easily upgrade to 
 ```bash
 wget https://launcher.mojang.com/mc/game/X.YY.Z/server/abcdefg12345/server.jar -O /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar
 chown minecraft-server.daemon /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar
-ln -sf /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar server.jar
+ln -sf /usr/local/minecraft-server/minecraft_server.X.YY.Z.jar /usr/local/minecraft-server/server.jar
 service minecraft-server restart
 ```
 
