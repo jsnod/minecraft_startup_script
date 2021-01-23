@@ -57,7 +57,9 @@ sudo tail --lines=500 -f /usr/local/minecraft-server/logs/latest.log
 2. Restart the server: `service minecraft-server restart`
 
 #### Adding Users To Your Private Server
-1. Find the user's UUID from [https://mcuuid.net/](https://mcuuid.net/)
+1. Find the user's UUID from one of these sites:
+    * [namemc.com](https://namemc.com/)
+    * [mcuuid.net](https://mcuuid.net/)
 2. Edit `/usr/local/minecraft-server/whitelist.json` and add them:
     ```javascript
     [
@@ -71,4 +73,5 @@ sudo tail --lines=500 -f /usr/local/minecraft-server/logs/latest.log
       },
     ]
     ```
+    * The `name` attribute is freeform, not the actual username, so make it descriptive so that you know who it is! Users can change their names over time so use this to know who it is.
 3. Restart the server: `service minecraft-server restart`
